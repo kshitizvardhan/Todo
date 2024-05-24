@@ -60,6 +60,11 @@ app.put("/completed", async (req,res) => {
     })
 })
 
+// Global Catch for the routes not found above
+app.all("*", (req,res) => {
+    res.status(404).send("<h1>Route Not Found</h1>")
+  })
+  
 
 app.listen(port, () => {
     console.log(`App listening to port ${port}`);
